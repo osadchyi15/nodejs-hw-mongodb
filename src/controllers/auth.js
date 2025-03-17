@@ -9,10 +9,18 @@ import { ONE_DAY } from '../constants/index.js';
 export const registerUserController = async (req, res) => {
   const user = await registerUser(req.body);
 
+  console.log('USER!!!', user);
+
   res.status(201).json({
     status: 201,
     message: 'Successfully registered a user!',
-    data: user,
+    data: {
+      name: user.name,
+      email: user.email,
+      // _id: user._id,
+      // createdAt: user.createdAt,
+      // updatedAt: user.updatedAt,
+    },
   });
 };
 
