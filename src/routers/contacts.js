@@ -34,7 +34,6 @@ router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
 router.put(
   '/:contactId',
   isValidId,
-  upload.single('photo'),
   validateBody(createContactsSchema),
   ctrlWrapper(upsertContactController),
 );
