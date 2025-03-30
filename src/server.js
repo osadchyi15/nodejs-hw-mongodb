@@ -14,6 +14,9 @@ const PORT = Number(getEnvVar('PORT', 3000));
 export const setupServer = () => {
   const app = express();
 
+  app.use('/uploads', express.static(UPLOAD_DIR));
+  app.use('/api-docs', swaggerDocs());
+
   app.use(cors());
   app.use(
     express.json({
@@ -36,9 +39,6 @@ export const setupServer = () => {
   app.use('*', notFoundHandler);
 
   app.use(errorHandler);
-
-  app.use('/uploads', express.static(UPLOAD_DIR));
-  app.use('/api-docs', swaggerDocs());
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
