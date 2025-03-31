@@ -12,7 +12,9 @@ tags:
 
 servers:
   - url: http://127.0.0.1:3000
-  - url: https://contacts-app-6bvi.onrender.com
+    description: Local Development Server
+  - url: https://contacts-app-ymg8.onrender.com
+    description: Production server
 paths:
   /contacts/{id}:
     get:
